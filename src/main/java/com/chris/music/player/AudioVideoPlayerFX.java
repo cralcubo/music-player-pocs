@@ -8,7 +8,12 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-
+/**
+ * First try to play streamed music with JavaFX
+ * 
+ * @author christian
+ *
+ */
 public class AudioVideoPlayerFX extends Application {
 	// Video
 //	 private final static String MEDIA_URL = "http://download.oracle.com/otndocs/products/javafx/JavaRap/prog_index.m3u8";
@@ -24,8 +29,6 @@ public class AudioVideoPlayerFX extends Application {
 	@Override
 	public void start(Stage stage) throws Exception {
 		Media media = new Media(MEDIA_URL);
-		
-		System.out.println(".:. MetaData=" + media.getMetadata());
 		
 		MediaPlayer mediaPlayer = new MediaPlayer(media);
 		mediaPlayer.setAutoPlay(true);

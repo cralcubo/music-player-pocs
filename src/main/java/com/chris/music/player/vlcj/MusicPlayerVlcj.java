@@ -5,16 +5,16 @@ import org.slf4j.LoggerFactory;
 
 import uk.co.caprica.vlcj.component.AudioMediaPlayerComponent;
 import uk.co.caprica.vlcj.discovery.NativeDiscovery;
+import uk.co.caprica.vlcj.player.MediaDetails;
 import uk.co.caprica.vlcj.player.MediaPlayer;
 import uk.co.caprica.vlcj.player.MediaPlayerEventAdapter;
 
 public class MusicPlayerVlcj {
 	private static final Logger log = LoggerFactory.getLogger(MusicPlayerVlcj.class);
-	private static final String SOURCE = "/Users/christian/Desktop/AudioTest/ArabianHorse.flac";
-	private static final String ONLINE_SOURCE = "http://stream-eu1.radioparadise.com/aac-320";
+	private static final String ONLINE_SOURCE = "http://server1.radiodanz.com:8020/";
 	private AudioMediaPlayerComponent mediaPlayerComponent;
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		new NativeDiscovery().discover();
 		
 		MusicPlayerVlcj player = new MusicPlayerVlcj();
@@ -26,8 +26,21 @@ public class MusicPlayerVlcj {
 		}
 	}
 	
-	private void start(String source) {
-		mediaPlayerComponent.getMediaPlayer().playMedia(source);
+	private void start(String source) throws InterruptedException {
+		MediaPlayer mediaPlayer = mediaPlayerComponent.getMediaPlayer();
+		mediaPlayer.playMedia(source);
+		System.out.println(".:. Wait 5 seconds...");
+		Thread.sleep(5000);
+		printMediaInfo(mediaPlayer);
+	}
+
+	private void printMediaInfo(MediaPlayer m) {
+		MediaDetails details = m.getMediaDetails();
+		System.out.println(".:. " + details);
+		System.out.println(".:. " + m.getMediaMeta().toString());
+		System.out.println(".:. " + m.getMediaMetaData().toString());
+		m.getAudioDescriptions().forEach(ad -> System.out.println(".:. AD=" + ad.toString()));
+		m.getExtendedChapterDescriptions().forEach(ed -> System.out.println(".:.ED=" + ed.toString()));
 	}
 
 	private MusicPlayerVlcj(){

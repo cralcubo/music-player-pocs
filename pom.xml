@@ -15,9 +15,23 @@
 		<logback.version>1.1.2</logback.version>
 		<junit.version>4.12</junit.version>
 		<vlcj.version>3.8.0</vlcj.version>
+		<musicbrainz.version>3.0.0</musicbrainz.version>
 	</properties>
+	
+	<repositories>
+		<repository>
+			<id>musicbrainzws2-java-mvn-repo</id>
+			<url>https://raw.github.com/schnatterer/musicbrainzws2-java/mvn-repo/</url>
+		</repository>
+	</repositories>
 
 	<dependencies>
+		<dependency>
+			<groupId>info.schnatterer.musicbrainzws2-java</groupId>
+			<artifactId>musicbrainzws2-java</artifactId>
+			<version>${musicbrainz.version}</version>
+		</dependency>
+		
 		<dependency>
 			<groupId>uk.co.caprica</groupId>
 			<artifactId>vlcj</artifactId>

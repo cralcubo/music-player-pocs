@@ -11,7 +11,7 @@ import uk.co.caprica.vlcj.player.MediaPlayerEventAdapter;
 
 public class MusicPlayerVlcj {
 	private static final Logger log = LoggerFactory.getLogger(MusicPlayerVlcj.class);
-	private static final String ONLINE_SOURCE = "http://server1.radiodanz.com:8020/";
+	private static final String ONLINE_SOURCE = "http://50.7.74.82:8193";
 	private AudioMediaPlayerComponent mediaPlayerComponent;
 	
 	public static void main(String[] args) throws InterruptedException {

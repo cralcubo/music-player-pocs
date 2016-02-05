@@ -1,4 +1,4 @@
-package com.chris.java8;
+package com.chris.java8.lambdas;
 
 import org.junit.Test;
 

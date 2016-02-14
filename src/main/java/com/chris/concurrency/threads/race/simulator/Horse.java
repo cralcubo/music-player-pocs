@@ -1,4 +1,4 @@
-package com.chris.concurrency.threads;
+package com.chris.concurrency.threads.race.simulator;
 
 import java.util.Random;
 
@@ -16,7 +16,7 @@ public class Horse implements Runnable {
 	}
 
 	public long runLap() throws InterruptedException {
-		long duration = Math.abs(rnd.nextLong()) % 4000 + 2000;
+		long duration = Math.abs(rnd.nextLong() % 40) + 20;
 		Thread.sleep(duration);
 		return duration;
 	}
@@ -40,7 +40,6 @@ public class Horse implements Runnable {
 			
 		} catch (Exception e) {
 			System.out.format("%s broke a leg :(\n",name);
-
 		}
 
 	}
